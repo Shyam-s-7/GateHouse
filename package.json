@@ -1,0 +1,21 @@
+{
+  "name": "gatehouse-api-gateway-platform",
+  "version": "1.0.0",
+  "description": "Enterprise-Grade API Gateway, Rate Throttling, and Developer Analytics Platform (MERN)",
+  "scripts": {
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "seed": "npm --prefix server run seed"
+  },
+  "keywords": [
+    "api-gateway",
+    "rate-limiting",
+    "reverse-proxy",
+    "mern",
+    "analytics-dashboard",
+    "developer-portal"
+  ],
+  "author": "Antigravity Principal Engineering",
+  "license": "MIT"
+}
