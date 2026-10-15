@@ -65,7 +65,19 @@ export const AuthProvider = ({ children }) => {
   };
 
   const quickDemoLogin = async () => {
-    return login('developer@gatehouse.io', 'Password123!');
+    try {
+      const res = await api.post('/api/auth/demo');
+      const { token: newToken, user: userData } = res.data;
+      localStorage.setItem('gatehouse_token', newToken);
+      setToken(newToken);
+      setUser(userData);
+      toast.success(`Welcome, ${userData.name}! Exploring Gatehouse in demo mode.`);
+      return { success: true };
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Demo login failed. Please try again.';
+      toast.error(msg);
+      return { success: false, message: msg };
+    }
   };
 
   const logout = () => {
